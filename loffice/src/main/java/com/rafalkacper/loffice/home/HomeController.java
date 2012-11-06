@@ -1,7 +1,5 @@
-package com.rafalkacper.loffice;
+package com.rafalkacper.loffice.home;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -24,14 +22,15 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
+		
 		logger.info("Welcome home! the client locale is "+ locale.toString());
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		HomeViewModelFactory homeViewModelFactory = new HomeViewModelFactory();
+		HomeViewModel homeViewModel = homeViewModelFactory.build(locale);
 		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
+		model.addAttribute("title", homeViewModel.getTitle());
+		model.addAttribute("message", homeViewModel.getMessage());
+		model.addAttribute("serverTime", homeViewModel.getServerTime());
 		
 		return "home";
 	}
