@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.rafalkacper.loffice">
+	<logger name="com.rafalkalita.rmwlex">
 		<level value="info" />
 	</logger>
 	

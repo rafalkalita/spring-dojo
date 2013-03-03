@@ -1,4 +1,4 @@
-package com.rafalkacper.loffice.home;
+package com.rafalkalita.rmwlex;
 
 public class HomeViewModel {
 
@@ -62,4 +62,12 @@ public class HomeViewModel {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "HomeViewModel [title=" + title + ", message=" + message
+				+ ", serverTime=" + serverTime + "]";
+	}
+	
+	
 }
